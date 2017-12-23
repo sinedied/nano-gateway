@@ -1,0 +1,13 @@
+http:
+  port: 8080
+auth: true
+apiKey: '123'
+services:
+  shutters:
+    path: '/shutters/*'
+    rewrite: '/$1'
+    url: 'http://192.168.0.59'
+  ip:
+    path: '/ip'
+    url: 'https://httpbin.org'
+    auth: false

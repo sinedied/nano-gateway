@@ -1,0 +1,47 @@
+{
+  "name": "nano-gateway",
+  "version": "1.0.0",
+  "description": "Lightweight API gateway for home-scale projects",
+  "repository": "sinedied/nano-gateway",
+  "preferGlobal": true,
+  "main": "index.js",
+  "bin": {
+    "nanog": "./bin/nanog"
+  },
+  "scripts": {
+    "start": "./bin/nanog",
+    "test": "eslint \"*.js\" \"bin/*.js\"",
+    "prepublish": "npm run test",
+    "postpublish": "git tag -a $npm_package_version -m \"$npm_package_version\" && git push --tags"
+  },
+  "keywords": [
+    "nano",
+    "api",
+    "gateway",
+    "yaml"
+  ],
+  "author": "Yohan Lasorsa",
+  "license": "MIT",
+  "homepage": "https://github.com/sinedied/nano-gateway",
+  "bugs": {
+    "url": "https://github.com/sinedied/nano-gateway/issues"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-http-proxy": "^1.1.0",
+    "express-urlrewrite": "^1.2.0",
+    "js-yaml": "^3.10.0",
+    "lodash.foreach": "^4.5.0",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-xo-space": "^0.17.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space/esnext"
+  }
+}

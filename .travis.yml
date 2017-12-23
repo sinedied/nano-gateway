@@ -1,0 +1,13 @@
+branches:
+  only:
+    - 'master'
+
+language: node_js
+node_js:
+  - 'node'
+  - '8'
+  - '7'
+  - '6'
+
+matrix:
+  fast_finish: true

@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+const gateway = require('../index');
+
+const help = 'Usage: nanog [--config file.yml]\n';
+const args = require('minimist')(process.argv.slice(2), {
+  boolean: 'help',
+  string: 'config'
+});
+
+if (args.help) {
+  console.info(help);
+} else {
+  gateway(args.config);
+}

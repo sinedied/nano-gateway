@@ -1,6 +1,6 @@
 {
   "name": "nano-gateway",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight API gateway for home-scale projects",
   "repository": "sinedied/nano-gateway",
   "preferGlobal": true,

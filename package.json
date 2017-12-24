@@ -18,7 +18,10 @@
     "nano",
     "api",
     "gateway",
-    "yaml"
+    "yaml",
+    "https",
+    "secure",
+    "express"
   ],
   "author": "Yohan Lasorsa",
   "license": "MIT",

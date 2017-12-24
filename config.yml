@@ -1,13 +1,18 @@
-http:
-  port: 8080
-auth: true
-apiKey: '123'
-services:
-  shutters:
-    path: '/shutters/*'
-    rewrite: '/$1'
-    url: 'http://192.168.0.59'
-  ip:
-    path: '/ip'
-    url: 'https://httpbin.org'
-    auth: false
+http:                 # optional, enable HTTP gateway
+  port: 8080          # optional, specify port for HTTP (default is 8080)
+https:                # optional, enable HTTPS gateway
+  cert: 'cert.pem'    # required, certificate path
+  key: 'privkey.pem'  # required, private key path
+  ca: 'chain.pem'     # optional, override trusted CA certificates
+  port: 8443          # optional, specify port for HTTPS (default is 8443)
+auth: true            # optional, enable API key authorization by default for all services
+apiKey: '123456'      # required if auth is enabled, use nanog --keygen to generate a new key
+services:             # required, define here the services to proxify
+  ip:                           # required, service name
+    path: '/ip'                 # required, endpoint(s) (use Express route syntax, see npmjs.com/path-to-regexp)
+    url: 'https://httpbin.org'  # required, target url for
+    auth: false                 # optional, authorization can be set or overriden by service
+  quote:                        # another service, add as many as you need
+    path: '/jokes/*'            # matches any routes under /jokes/
+    rewrite: '/jokes/random'    # optional, rewrite URL (for syntax, see npmjs.com/express-urlrewrite)
+    url: 'https://api.chucknorris.io'

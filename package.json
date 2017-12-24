@@ -11,7 +11,6 @@
   "scripts": {
     "start": "./bin/nanog",
     "test": "eslint \"*.js\" \"bin/*.js\"",
-    "prepublish": "npm run test",
     "postpublish": "git tag -a $npm_package_version -m \"$npm_package_version\" && git push --tags"
   },
   "keywords": [

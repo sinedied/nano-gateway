@@ -3,14 +3,16 @@ const proxy = require('express-http-proxy');
 const rewrite = require('express-urlrewrite');
 const foreach = require('lodash.foreach');
 const yaml = require('js-yaml');
+const https = require('https');
 const fs = require('fs');
-const pkg = require('./package.json');
+const path = require('path');
 
 module.exports = function (configPath) {
   configPath = configPath || process.env.NANO_GATEWAY_CONFIG || 'config.yml';
 
   const config = yaml.safeLoad(fs.readFileSync(configPath, 'utf8'));
   const app = express().disable('x-powered-by');
+  process.chdir(path.dirname(configPath));
 
   function auth(req, res, next) {
     const apiKey = req.headers.authorization || req.query.apiKey;
@@ -33,8 +35,20 @@ module.exports = function (configPath) {
     app.all.apply(app, routeConfig.filter(e => e));
   });
 
-  this.server = app.listen(config.http.port || 8080, config.http.host, () => {
-    const bound = this.server.address();
-    console.log(`nano-gateway v${pkg.version} started at ${bound.address}:${bound.port}`);
-  });
+  function showAddress(type) {
+    const bound = this[type].address();
+    console.log(`| ${type}://${bound.address}:${bound.port}`);
+  }
+  console.log(`nano-gateway v${require('./package.json').version} started at:`);
+
+  if (config.http || !config.https) {
+    this.http = app.listen(config.http.port || 8080, config.http.host, showAddress.bind(this, 'http'));
+  }
+  if (config.https && config.https.key && config.https.cert) {
+    const key = fs.readFileSync(config.https.key, 'utf8');
+    const cert = fs.readFileSync(config.https.cert, 'utf8');
+    const ca = config.https.ca ? fs.readFileSync(config.https.ca, 'utf8') : undefined;
+    this.https = https.createServer({key, cert, ca}, app)
+      .listen(config.https.port || 8443, showAddress.bind(this, 'https'));
+  }
 };

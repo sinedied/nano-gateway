@@ -90,7 +90,7 @@ https:
 
 ## Running on Docker
 
-A minimal [Docker images](https://hub.docker.com/r/sinedied/nano-gateway/) based on `node:alpine` is also available
+A minimal [Docker image](https://hub.docker.com/r/sinedied/nano-gateway/) based on `node:alpine` is also available
 for deployment.
 
 You just need to map a folder with a `config.yml` file in it to the `/config` volume:

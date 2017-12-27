@@ -1,10 +1,6 @@
-# :zap: nano-gateway
+# nano-gateway
 
-[![NPM version](https://img.shields.io/npm/v/nano-gateway.svg)](https://www.npmjs.com/package/nano-gateway)
-[![Build status](https://img.shields.io/travis/sinedied/nano-gateway/master.svg)](https://travis-ci.org/sinedied/nano-gateway)
-![Node version](https://img.shields.io/badge/node-%3E%3D6.0.0-brightgreen.svg)
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![NPM version](https://img.shields.io/npm/v/nano-gateway.svg)](https://www.npmjs.com/package/nano-gateway) [![Build status](https://img.shields.io/travis/sinedied/nano-gateway/master.svg)](https://travis-ci.org/sinedied/nano-gateway) ![Node version](https://img.shields.io/badge/node-%3E%3D6.0.0-brightgreen.svg) [![Docker layers](https://images.microbadger.com/badges/image/sinedied/nano-gateway.svg)](https://microbadger.com/images/sinedied/nano-gateway) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 > Lightweight API gateway for home-scale projects.
 
@@ -90,4 +86,15 @@ https:
   cert: 'cert.pem'
   key: 'privkey.pem'
   ca: 'chain.pem' # optional, override trusted CA certificates
+```
+
+## Running on Docker
+
+A minimal [Docker images](https://hub.docker.com/r/sinedied/nano-gateway/) based on `node:alpine` is also available
+for deployment.
+
+You just need to map a folder with a `config.yml` file in it to the `/config` volume:
+```
+docker pull sinedied/nano-gateway
+docker run --d -v <your_config_dir>:/config -p 8443:8443 --name nano-gateway sinedied/nano-gateway
 ```

@@ -8,5 +8,6 @@ COPY package*.json ./
 RUN npm install --production
 COPY . .
 
+EXPOSE 8080
 EXPOSE 8443
 CMD ["npm", "start", "--", "--config=/config/config.yml"]

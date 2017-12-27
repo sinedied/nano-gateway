@@ -1,5 +1,6 @@
 test/
 .gitignore
+.dockerignore
 .vscode
 .editorconfig
 .travis.yml

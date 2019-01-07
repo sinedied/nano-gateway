@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "./bin/nanog",
-    "test": "eslint \"*.js\" \"bin/*.js\"",
+    "test": "eslint \"*.js\" \"bin/*\"",
     "postpublish": "git tag -a $npm_package_version -m \"$npm_package_version\" && git push --tags",
     "docker:build": "docker build -t nano-gateway .",
     "docker:test": "docker run --rm -it -v `pwd`/test:/config -p 8443:8443 --name nanog nano-gateway"
@@ -31,16 +31,16 @@
     "url": "https://github.com/sinedied/nano-gateway/issues"
   },
   "dependencies": {
-    "express": "^4.16.2",
-    "express-http-proxy": "^1.1.0",
+    "express": "^4.16.4",
+    "express-http-proxy": "^1.5.0",
     "express-urlrewrite": "^1.2.0",
-    "js-yaml": "^3.10.0",
+    "js-yaml": "^3.12.1",
     "lodash.foreach": "^4.5.0",
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "eslint": "^4.14.0",
-    "eslint-config-xo-space": "^0.17.0"
+    "eslint": "^5.12.0",
+    "eslint-config-xo-space": "^0.20.0"
   },
   "engines": {
     "node": ">=6.0.0"

@@ -32,7 +32,7 @@ module.exports = function (configPath) {
       service.rewrite ? rewrite(service.path, service.rewrite) : null,
       proxy(service.url)
     ];
-    app.all.apply(app, routeConfig.filter(e => e));
+    app.all(...routeConfig.filter(e => e));
   });
 
   function showAddress(type) {

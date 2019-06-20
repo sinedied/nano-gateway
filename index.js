@@ -19,6 +19,7 @@ module.exports = function (configPath) {
     if (apiKey && apiKey === config.apiKey) {
       return next();
     }
+
     const error = 'Unauthorized';
     res.status(401, error);
     next(error);
@@ -39,11 +40,13 @@ module.exports = function (configPath) {
     const bound = this[type].address();
     console.log(`| ${type}://${bound.address}:${bound.port}`);
   }
+
   console.log(`nano-gateway v${require('./package.json').version} started at:`);
 
   if (config.http || !config.https) {
     this.http = app.listen(config.http.port || 8080, config.http.host, showAddress.bind(this, 'http'));
   }
+
   if (config.https && config.https.key && config.https.cert) {
     const key = fs.readFileSync(config.https.key, 'utf8');
     const cert = fs.readFileSync(config.https.cert, 'utf8');

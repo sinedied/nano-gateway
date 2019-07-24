@@ -1,6 +1,6 @@
 {
   "name": "nano-gateway",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Lightweight API gateway for home-scale projects",
   "repository": "sinedied/nano-gateway",
   "preferGlobal": true,
@@ -31,15 +31,15 @@
     "url": "https://github.com/sinedied/nano-gateway/issues"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "express-http-proxy": "^1.5.0",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.5.1",
     "express-urlrewrite": "^1.2.0",
     "js-yaml": "^3.12.1",
     "lodash.foreach": "^4.5.0",
     "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "eslint": "^5.12.0",
+    "eslint": "^5.16.0",
     "eslint-config-xo-space": "^0.20.0"
   },
   "engines": {

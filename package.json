@@ -39,7 +39,6 @@
     "express-http-proxy": "^1.6.2",
     "express-urlrewrite": "^2.0.0",
     "js-yaml": "^4.1.0",
-    "lodash.foreach": "^4.5.0",
     "minimist": "^1.2.5"
   },
   "devDependencies": {

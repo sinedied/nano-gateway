@@ -7,10 +7,10 @@
   "type": "module",
   "exports": "./index.js",
   "bin": {
-    "nanog": "./bin/nanog"
+    "nanog": "./bin/nanog.js"
   },
   "scripts": {
-    "start": "./bin/nanog",
+    "start": "./bin/nanog.js",
     "lint:fix": "xo \"*.js\" \"bin/*\" --fix",
     "test": "xo \"*.js\" \"bin/*\"",
     "docker:build": "docker build -t nano-gateway .",

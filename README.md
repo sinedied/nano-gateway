@@ -3,7 +3,7 @@
 [![NPM version](https://img.shields.io/npm/v/nano-gateway.svg)](https://www.npmjs.com/package/nano-gateway)
 [![Build status](https://github.com/sinedied/nano-gateway/workflows/build/badge.svg)](https://github.com/sinedied/nano-gateway/actions)
 ![Node version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen.svg)
-[![Docker layers](https://images.microbadger.com/badges/image/sinedied/nano-gateway.svg)](https://microbadger.com/images/sinedied/nano-gateway)
+[![Docker Hub](https://img.shields.io/docker/image-size/sinedied/nano-gateway?sort=semver)](https://hub.docker.com/r/sinedied/nano-gateway/)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 

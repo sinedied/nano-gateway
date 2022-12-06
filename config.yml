@@ -3,7 +3,7 @@ http:                 # optional, enable HTTP gateway
 https:                # optional, enable HTTPS gateway
   cert: 'cert.pem'    # required, certificate path
   key: 'privkey.pem'  # required, private key path
-  ca: 'chain.pem'     # optional, override trusted CA certificates
+# ca: 'chain.pem'     # optional, override trusted CA certificates
   port: 8443          # optional, specify port for HTTPS (default is 8443)
 auth: true            # optional, enable API key authorization by default for all services
 apiKey: '123456'      # required if auth is enabled, use nanog --keygen to generate a new key

@@ -3,3 +3,5 @@ test/
 npm-debug.log
 .DS_Store
 TODO
+privkey.pem
+cert.pem

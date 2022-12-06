@@ -13,6 +13,7 @@
     "start": "./bin/nanog.js",
     "lint:fix": "xo \"*.js\" \"bin/*\" --fix",
     "test": "xo \"*.js\" \"bin/*\"",
+    "make:certificate": "openssl req -nodes -new -x509 -keyout privkey.pem -out cert.pem -subj '/CN=localhost'",
     "docker:build": "docker build -t nano-gateway .",
     "docker:test": "docker run --rm -it -v `pwd`/test:/config -p 8443:8443 --name nanog nano-gateway",
     "release:check": "semantic-release --dry-run"

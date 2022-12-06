@@ -15,3 +15,8 @@ http://localhost:8080/jokes/toto
 
 # Test URL rewriting with auth
 http://localhost:8080/jokes/toto?apiKey=123456
+
+###
+
+# Test https
+https://localhost:8443/ip

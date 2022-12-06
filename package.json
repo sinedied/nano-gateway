@@ -14,7 +14,8 @@
     "lint:fix": "xo \"*.js\" \"bin/*\" --fix",
     "test": "xo \"*.js\" \"bin/*\"",
     "docker:build": "docker build -t nano-gateway .",
-    "docker:test": "docker run --rm -it -v `pwd`/test:/config -p 8443:8443 --name nanog nano-gateway"
+    "docker:test": "docker run --rm -it -v `pwd`/test:/config -p 8443:8443 --name nanog nano-gateway",
+    "release:check": "semantic-release --dry-run"
   },
   "keywords": [
     "nano",
@@ -42,10 +43,16 @@
     "minimist": "^1.2.5"
   },
   "devDependencies": {
+    "semantic-release": "^19.0.5",
+    "semantic-release-npm-github": "^3.0.0",
     "xo": "^0.53.1"
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "prettier": {
+    "trailingComma": "none",
+    "bracketSpacing": true
   },
   "xo": {
     "space": true,
@@ -57,5 +64,13 @@
     "rules": {
       "unicorn/prevent-abbreviations": "off"
     }
-  }
+  },
+  "release": {
+    "extends": "semantic-release-npm-github",
+    "branches": "main"
+  },
+  "files": [
+    "bin",
+    "index.js"
+  ]
 }

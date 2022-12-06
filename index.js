@@ -33,7 +33,7 @@ export default function gateway(configPath) {
       service.path,
       service.auth || (service.auth === undefined && config.auth) ? auth : null,
       service.rewrite ? rewrite(service.path, service.rewrite) : null,
-      proxy(service.url),
+      proxy(service.url)
     ];
     app.all(...routeConfig.filter(Boolean));
   }
@@ -55,7 +55,7 @@ export default function gateway(configPath) {
     const cert = fs.readFileSync(config.https.cert, 'utf8');
     const ca = config.https.ca ? fs.readFileSync(config.https.ca, 'utf8') : undefined;
     server.http = https
-      .createServer({key, cert, ca}, app)
+      .createServer({ key, cert, ca }, app)
       .listen(config.https.port || 8443, showAddress.bind(this, 'https'));
   }
 }

@@ -23,6 +23,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: |
+        npm install -g npm@latest
         npm ci
         npm run test
   build_all:

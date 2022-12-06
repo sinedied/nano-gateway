@@ -4,7 +4,8 @@
   "description": "Lightweight API gateway for home-scale projects",
   "repository": "sinedied/nano-gateway",
   "preferGlobal": true,
-  "main": "index.js",
+  "type": "module",
+  "exports": "./index.js",
   "bin": {
     "nanog": "./bin/nanog"
   },

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-import gateway from '../index.js';
+import process from 'node:process';
 import minimist from 'minimist';
+import gateway from '../index.js';
 
 const base62 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 const help = 'Usage: nanog [--config file.yml] [--keygen]\n';
@@ -16,6 +17,7 @@ if (args.help) {
   for (let i = 0; i < 32; i++) {
     key += base62[Math.floor(Math.random() * base62.length)];
   }
+
   console.log(key);
 } else {
   gateway(args.config);

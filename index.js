@@ -7,6 +7,8 @@ import proxy from 'express-http-proxy';
 import rewrite from 'express-urlrewrite';
 import yaml from 'js-yaml';
 
+const server = {};
+
 export default function gateway(configPath) {
   configPath = configPath || process.env.NANO_GATEWAY_CONFIG || 'config.yml';
 
@@ -37,7 +39,7 @@ export default function gateway(configPath) {
   }
 
   function showAddress(type) {
-    const bound = this[type].address();
+    const bound = server[type].address();
     console.log(`| ${type}://${bound.address}:${bound.port}`);
   }
 
@@ -45,14 +47,14 @@ export default function gateway(configPath) {
   console.log(`nano-gateway v${pkg.version} started at:`);
 
   if (config.http || !config.https) {
-    this.http = app.listen(config.http.port || 8080, config.http.host, showAddress.bind(this, 'http'));
+    server.http = app.listen(config.http.port || 8080, config.http.host, showAddress.bind(this, 'http'));
   }
 
   if (config.https && config.https.key && config.https.cert) {
     const key = fs.readFileSync(config.https.key, 'utf8');
     const cert = fs.readFileSync(config.https.cert, 'utf8');
     const ca = config.https.ca ? fs.readFileSync(config.https.ca, 'utf8') : undefined;
-    this.https = https
+    server.http = https
       .createServer({key, cert, ca}, app)
       .listen(config.https.port || 8443, showAddress.bind(this, 'https'));
   }

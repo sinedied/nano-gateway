@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import gateway from '../index';
+import gateway from '../index.js';
 import minimist from 'minimist';
 
 const base62 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';

@@ -7,9 +7,8 @@ import proxy from 'express-http-proxy';
 import rewrite from 'express-urlrewrite';
 import yaml from 'js-yaml';
 
-const server = {};
-
 export default function gateway(configPath) {
+  const server = {};
   configPath = configPath || process.env.NANO_GATEWAY_CONFIG || 'config.yml';
 
   const config = yaml.load(fs.readFileSync(configPath, 'utf8'));

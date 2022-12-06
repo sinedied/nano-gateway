@@ -16,7 +16,7 @@
 - HTTPS support
 - Secure endpoints with API key
 - URL rewriting
-- Less than [50 LOC](index.js) :smile:
+- Less than [60 LOC](index.js) :smile:
 
 ## Installation
 

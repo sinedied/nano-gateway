@@ -1,0 +1,17 @@
+##################################################################
+# VS Code with REST Client extension is needed to use this file.
+# Download at: https://aka.ms/vscode/rest-client
+##################################################################
+
+# Test simple forwarding without auth
+http://localhost:8080/ip
+
+###
+
+# Test auth rejected
+http://localhost:8080/jokes/toto
+
+###
+
+# Test URL rewriting with auth
+http://localhost:8080/jokes/toto?apiKey=123456

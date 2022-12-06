@@ -1,9 +1,10 @@
 #!/usr/bin/env node
-const gateway = require('../index');
+import gateway from '../index';
+import minimist from 'minimist';
 
 const base62 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 const help = 'Usage: nanog [--config file.yml] [--keygen]\n';
-const args = require('minimist')(process.argv.slice(2), {
+const args = minimist(process.argv.slice(2), {
   boolean: ['help', 'keygen'],
   string: 'config'
 });

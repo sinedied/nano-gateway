@@ -1,6 +1,11 @@
 # nano-gateway
 
-[![NPM version](https://img.shields.io/npm/v/nano-gateway.svg)](https://www.npmjs.com/package/nano-gateway) [![Build status](https://img.shields.io/travis/sinedied/nano-gateway/main.svg)](https://travis-ci.org/sinedied/nano-gateway) ![Node version](https://img.shields.io/badge/node-%3E%3D6.0.0-brightgreen.svg) [![Docker layers](https://images.microbadger.com/badges/image/sinedied/nano-gateway.svg)](https://microbadger.com/images/sinedied/nano-gateway) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![NPM version](https://img.shields.io/npm/v/nano-gateway.svg)](https://www.npmjs.com/package/nano-gateway)
+[![Build status](https://github.com/sinedied/nano-gateway/workflows/build/badge.svg)](https://github.com/sinedied/nano-gateway/actions)
+![Node version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen.svg)
+[![Docker layers](https://images.microbadger.com/badges/image/sinedied/nano-gateway.svg)](https://microbadger.com/images/sinedied/nano-gateway)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ![](https://user-images.githubusercontent.com/593151/34394053-379cfa3c-eb57-11e7-855d-ef15cc5d3bcb.png)
 
@@ -21,7 +26,6 @@ npm install -g nano-gateway
 
 ## Usage
 ```sh
-nanog --help
 Usage: nanog [--config file.yml] [--keygen]
 ```
 

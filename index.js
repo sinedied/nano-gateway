@@ -5,7 +5,6 @@ import process from 'node:process';
 import express from 'express';
 import proxy from 'express-http-proxy';
 import rewrite from 'express-urlrewrite';
-import foreach from 'lodash.foreach';
 import yaml from 'js-yaml';
 
 export default function gateway(configPath) {
@@ -26,7 +25,7 @@ export default function gateway(configPath) {
     next(error);
   }
 
-  foreach(config.services, (service, name) => {
+  for (const [name, service] of Object.entries(config.services)) {
     console.log(`service: ${name} at ${service.path}`);
     const routeConfig = [
       service.path,
@@ -35,7 +34,7 @@ export default function gateway(configPath) {
       proxy(service.url),
     ];
     app.all(...routeConfig.filter(Boolean));
-  });
+  }
 
   function showAddress(type) {
     const bound = this[type].address();

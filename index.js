@@ -1,16 +1,16 @@
+const https = require('node:https');
+const fs = require('node:fs');
+const path = require('node:path');
 const express = require('express');
 const proxy = require('express-http-proxy');
 const rewrite = require('express-urlrewrite');
 const foreach = require('lodash.foreach');
 const yaml = require('js-yaml');
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
 
 module.exports = function (configPath) {
   configPath = configPath || process.env.NANO_GATEWAY_CONFIG || 'config.yml';
 
-  const config = yaml.safeLoad(fs.readFileSync(configPath, 'utf8'));
+  const config = yaml.load(fs.readFileSync(configPath, 'utf8'));
   const app = express().disable('x-powered-by');
   process.chdir(path.dirname(configPath));
 
@@ -31,9 +31,9 @@ module.exports = function (configPath) {
       service.path,
       service.auth || (service.auth === undefined && config.auth) ? auth : null,
       service.rewrite ? rewrite(service.path, service.rewrite) : null,
-      proxy(service.url)
+      proxy(service.url),
     ];
-    app.all(...routeConfig.filter((e) => e));
+    app.all(...routeConfig.filter(Boolean));
   });
 
   function showAddress(type) {

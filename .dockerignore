@@ -1,7 +1,10 @@
 node_modules/
 .git/
+.github/
 .gitignore
 .vscode
 .editorconfig
-.travis.yml
+*.pem
+test/
 config.yml
+TODO

@@ -17,5 +17,8 @@ jobs:
     - run: npx semantic-release
       if: success()
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # Need to push tags with a real account to trigger the docker workflow
+        GIT_COMMITTER_NAME: sinedied
+        GIT_COMMITTER_EMAIL: noda@free.fr

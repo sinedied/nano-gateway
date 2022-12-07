@@ -6,5 +6,6 @@ node_modules/
 .editorconfig
 *.pem
 test/
+test.http
 config.yml
 TODO
